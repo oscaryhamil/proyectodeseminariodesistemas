@@ -1,58 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    	<meta charset="utf-8">
-        {% block title %}
-        {% endblock %}
-    	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/styles.css">
-        <title>Inicio</title>
-    </head>
-    <body>
-    	<header>
-    		<img id="logo" src="{{STATIC_URL}}images/logo.jpg">
-    		<h1 id="nombre">JUEGO</h1>
-    	</header>
-    		<nav id="menu">
-    			<ul>
-    				<li><a href="#index">Inicio</a></li>
-    				<li><a href="#blog">Blog</a></li>
-    				<li><a href="#registro">Registrarse</a></li>
-    				<li><a href="#logeo">Login</a></li>
-    			</ul>
-    		</nav>
-            
-    		<section id="Contenido">
-    			<section id="izquierda">
-                    {% block contenido %}
-    				<article class="noticia">
-    					<img class="imagen" src="{{STATIC_URL}}images/logos.jpg">
-    					<p class="letra">Las migraciones son cómo almacena Django cambios a sus modelos (y por tanto el esquema de base de datos) - son simplemente los archivos en el disco. Puedes leer la migración para su nuevo modelo si se quiere; que es el archivo polls/migrations/0001_initial.py . No te preocupes, no se espera para leerlos cada vez que Django hace uno, sino que están diseñados para ser humano editable en caso de que quiera ajustar manualmente cómo Django cambia las cosas.</p>
-    				</article>
-    				<article class="noticia">
-    					<img class="imagen" src="{{STATIC_URL}}images/logos.jpg">
-    					<p class="letra">Las migraciones son cómo almacena Django cambios a sus modelos (y por tanto el esquema de base de datos) - son simplemente los archivos en el disco. Puedes leer la migración para su nuevo modelo si se quiere; que es el archivo polls/migrations/0001_initial.py . No te preocupes, no se espera para leerlos cada vez que Django hace uno, sino que están diseñados para ser humano editable en caso de que quiera ajustar manualmente cómo Django cambia las cosas.</p>
-    				</article>
-    				<article class="noticia">
-    					<img class="imagen" src="{{STATIC_URL}}images/logos.jpg">
-    					<p class="letra">Las migraciones son cómo almacena Django cambios a sus modelos (y por tanto el esquema de base de datos) - son simplemente los archivos en el disco. Puedes leer la migración para su nuevo modelo si se quiere; que es el archivo polls/migrations/0001_initial.py . No te preocupes, no se espera para leerlos cada vez que Django hace uno, sino que están diseñados para ser humano editable en caso de que quiera ajustar manualmente cómo Django cambia las cosas.</p>
-    				</article>
-                    {% endblock %}
-    			</section>
-    			<section id="derecha">
-    				<article class="objetivos">
-    					<p>Hoja de estilo en cascada o CSS (siglas en inglés de cascading style sheets) es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML o XML2 (y por extensión en XHTML).</p>
-    				</article>
-    				<article class="objetivos">
-    					<p>Hoja de estilo en cascada o CSS (siglas en inglés de cascading style sheets) es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML o XML2 (y por extensión en XHTML).</p>
-    				</article>
-    				<article class="objetivos">
-    					<p>Hoja de estilo en cascada o CSS (siglas en inglés de cascading style sheets) es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML o XML2 (y por extensión en XHTML).</p>
-    				</article>
-    			</section>
-    		</section>
-    	   
-    </body>
-    {% block footer %}
-        <p id="pie">Esto es el pie de pagina</p>
-    {% endblock %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%block title%}
+    {%endblock%}
+
+    <!-- Bootstrap -->
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {%block content%}
+    {%endblock%}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{STATIC_URL}}js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+  </body>
 </html>

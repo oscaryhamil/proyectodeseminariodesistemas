@@ -4,14 +4,11 @@
 {%endblock%}
 {%block content%}
 	{%include "includes/header.html"%}
-	<div class="container">
-		<div class="row">
 			<div class="col-xs-12">
-				<h2>Bienvenido {{ user.get_full_name}}</h2>
+				<h2>Bienvenido {{ user.get_full_name}}</h2><br>
 				<h2> Pais:{{user.perfil.pais}}</h2>
+				<img src="/media/{{ user.perfil.avatar}}" alt="avatar">
 			</div>
-		</div>
-	</div>
 	<img id="image3"src="{{STATIC_URL}}images/img4.jpg">
 	{%include "includes/footer.html"%}
 {%endblock%}

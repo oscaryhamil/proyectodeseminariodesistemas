@@ -2,6 +2,8 @@ from django.db import models
 from thumbs import ImageWithThumbsField
 from django.contrib.auth.models import User
 
+#photo = ImageWithThumbsField(upload_to='images', sizes=((125,125),(300,200),)
+
 # Create your models here.
 class Perfil(models.Model):
 	user=models.OneToOneField(User,unique=True)

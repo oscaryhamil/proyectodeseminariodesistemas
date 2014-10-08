@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 from .models import *
 
 class fperfil(ModelForm):
-	model=Perfil
-	exclude=['user']
+	class Meta:
+		model=Perfil
+		exclude=['user']
 
 class fusuario(UserCreationForm):
 	username=forms.CharField(max_length=40, required=True,help_text=False,label="Nick")

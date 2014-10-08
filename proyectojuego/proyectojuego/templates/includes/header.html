@@ -8,8 +8,12 @@
         <ul class="nav nav-pills">
             <li class="active"><a href="#">Inicio</a></li>
             <li><a href="/user/registro/">Registro</a></li>
-            <li><a href="/login/">Login</a></li>
-            <li class="dropdown">
+            {% if user.is_authenticated %}
+                <li><a href="/logout/">Salir</a></li>
+            {% else %}
+                <li><a href="/login/">Login</a></li>
+            {% endif %}
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Action</a></li>

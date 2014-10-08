@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+{%block title%}
+	<title>Login</title>
+{%endblock%}
+{%block content%}
+	{%include "includes/header.html"%}
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<form action="" method="post">
+					{{ formulario.as_p }}
+					{% csrf_token %}
+					<button type="submit" class="btn btn-primary">Ingresar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	{%include "includes/footer.html"%}
+{%endblock%}

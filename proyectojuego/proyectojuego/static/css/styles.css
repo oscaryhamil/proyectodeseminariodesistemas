@@ -66,3 +66,23 @@
 #parrafo2:hover{
 	background: rgba(128,128,128,0.7);
 }
+#image{
+	display: inline-block;
+	height: 370px;
+	width: 100%;
+}
+#image1{
+	display: inline-block;
+	width: 100%;
+	height: 250px;
+}
+#image2{
+	display: inline-block;
+	width: 100%;
+	height: 300px;
+}
+#image3{
+	display: inline-block;
+	width: 100%;
+	height: 300px;
+}

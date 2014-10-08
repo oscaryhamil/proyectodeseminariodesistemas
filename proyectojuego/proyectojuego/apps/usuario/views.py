@@ -66,6 +66,6 @@ def view_user_active(request):
 					return HttpResponseRedirect("/user/perfil/")
 			else:
 				formulario=fperfil()
-			return render_to_response("usuario/activar.html",{'formulario':formulario},RequestContext(request))
+			return render_to_response("usuario/activar.html",{"formulario":formulario},RequestContext(request))
 	else:
 		return HttpResponseRedirect("/login/")

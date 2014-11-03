@@ -5,6 +5,9 @@
 {%block content%}
 	{%include "includes/header.html"%}
 			<div class="col-xs-12">
+				{% if estado %}
+					<div class="alert alert-danger" role="alert">{{ mensaje }} <span class="glyphicon glyphicon-warning-sign"></span></div>
+				{% endif %}
 				<form align="center" id="form2" action="" method="post">
 					{{ formulario.as_p }}
 					{% csrf_token %}

@@ -3,5 +3,4 @@ from .views import *
 
 urlpatterns = patterns('',
     url(r'^$',view_inicio, name='Inicio'),
-    
 )

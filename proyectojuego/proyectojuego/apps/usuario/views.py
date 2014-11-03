@@ -33,13 +33,22 @@ def view_login(request):
 			if acceso is not None:
 				if acceso.is_active:
 					login(request, acceso)
+					del request.session['cont']
 					return HttpResponseRedirect("/user/perfil/")
 				else:
 					login(request,acceso)
 					return HttpResponseRedirect("/user/active/")
 			else:
-				return HttpResponse("Error en los datos")
+				request.session['cont']=request.session['cont']+1
+				estado=True
+				var=request.session['cont']
+				if var>3:
+					return HttpResponse("Muchos intentos, usted esta bloqueado")
+				mensaje="Error en los datos " + str(var)
+				datos={'formulario':formulario,'estado':estado,'mensaje':mensaje}
+				return render_to_response("usuario/login.html",datos,RequestContext(request))
 	else:
+		request.session['cont']=0
 		formulario=AuthenticationForm()
 	return render_to_response("usuario/login.html",{"formulario":formulario},RequestContext(request))
 def view_logout(request):

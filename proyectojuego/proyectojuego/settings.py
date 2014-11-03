@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'proyectojuego.apps.principal',
     'proyectojuego.apps.usuario',
+    'captcha',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,7 @@ RUTA_PROYECTO=os.path.dirname(os.path.realpath(__file__))
 TEMPLATE_DIRS=(os.path.join(RUTA_PROYECTO,"templates"),)
 STATICFILES_DIRS=(os.path.join(RUTA_PROYECTO,"static"),)
 MEDIA_ROOT=os.path.join(RUTA_PROYECTO,"media")
+
+#captcha
+RECAPTCHA_PUBLIC_KEY = '6LfzGv0SAAAAAEly3AzD_6rZRKymu_mVYidU4Y8I'
+RECAPTCHA_PRIVATE_KEY = '6LfzGv0SAAAAALFW9kEEz-GBf9gFACoaVvbCHheD'

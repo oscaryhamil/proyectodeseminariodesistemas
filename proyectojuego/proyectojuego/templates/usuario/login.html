@@ -11,9 +11,10 @@
 				<form align="center" id="form2" action="" method="post">
 					{{ formulario.as_p }}
 					{% csrf_token %}
+			  		{{formulario2.as_p}}
 					<button type="submit" class="btn btn-primary">Ingresar</button>
 				</form>
 			</div>
-	<img id="image"src="{{STATIC_URL}}images/img6.jpg">
+	
 	{%include "includes/footer.html"%}
 {%endblock%}

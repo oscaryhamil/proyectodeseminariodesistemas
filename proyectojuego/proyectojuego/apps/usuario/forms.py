@@ -13,6 +13,10 @@ class fperfil(ModelForm):
 	class Meta:
 		model=Perfil
 		exclude=['user']
+class fperfil_modificar(ModelForm):
+	class Meta:
+		model=Perfil
+		exclude=['user']
 
 class fusuario(UserCreationForm):
 	username=forms.CharField(max_length=40, required=True,help_text=False,label="Nick")

@@ -1,16 +1,26 @@
-{%extends "base.html"%}
-{%block title%}
-	<title>Registro Usuario</title>
-{%endblock%}
-{%block content%}
-	{%include "includes/header.html"%}
-			<div class="col-xs-12">
-				<form align="center" class="form1" action="" method="post">
-					{{ formulario.as_p }}
-					{% csrf_token %}
-					<button type="submit" class="btn btn-primary">Registrar</button>
-				</form>
+{% extends "base.html" %}
+
+{% block title %}
+	    <title>Registro usuario</title>
+{% endblock %}
+
+{% block content %}
+	{% include "includes/header.html" %}
+	<div class="container page">
+		<div class="row">
+			<div class="col-xs-3"></div>
+			<div class="col-xs-5">
+			{% load bootstrap3 %}
+			<form acion="" method="post">
+			<legend>Formulario de registro</legend>
+		        {% csrf_token %}
+		        {% bootstrap_form formulario %}
+		        {% buttons %}
+		            <button type="submit" class="btn btn-primary">Registrar</button>
+		        {% endbuttons %}
+		    </form>				
 			</div>
-	<img id="image1"src="{{STATIC_URL}}images/img3.jpg">
-	{%include "includes/footer.html"%}
-{%endblock%}
+		</div>
+	</div>
+	{% include "includes/footer.html" %}
+{% endblock %}

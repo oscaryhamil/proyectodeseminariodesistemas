@@ -22,7 +22,7 @@ def view_registro(request):
 			return HttpResponse("Registrado")
 	else:
 			formulario_registro=fusuario()
-	return render_to_response("usuario/user_registro.html",{"formulario":formulario_registro},RequestContext(request))
+	return render_to_response("usuario/user_registro.html",{"formulario":formulario_registro},context_instance=RequestContext(request))
 def view_login(request):
 	if request.method=="POST":
 		formulario=AuthenticationForm(request.POST)
@@ -32,34 +32,34 @@ def view_login(request):
 				pass
 			else:
 				datos={'formulario':formulario,'formulario2':formulario2}
-				return render_to_response("usuario/login.html",datos,RequestContext(request))
+				return render_to_response("usuario/login.html",datos,context_instance=RequestContext(request))		
 		if formulario.is_valid:
 			usuario=request.POST['username']
-			clave=request.POST['password']
-			acceso=authenticate(username=usuario,password=clave)
+			contrasena=request.POST['password']
+			acceso=authenticate(username=usuario,password=contrasena)
 			if acceso is not None:
 				if acceso.is_active:
 					login(request, acceso)
 					del request.session['cont']
 					return HttpResponseRedirect("/user/perfil/")
 				else:
-					login(request,acceso)
+					login(request, acceso)
 					return HttpResponseRedirect("/user/active/")
 			else:
 				request.session['cont']=request.session['cont']+1
 				var=request.session['cont']
 				estado=True
-				mensaje="Error en los datos " + str(var)
+				mensaje="Error en los datos "+str(var)
 				if var>3:
 					formulario2=fcaptcha()
 					datos={'formulario':formulario,'formulario2':formulario2,'estado':estado,'mensaje':mensaje}
 				else:
 					datos={'formulario':formulario,'estado':estado,'mensaje':mensaje}
-					return render_to_response("usuario/login.html",datos,RequestContext(request))
+				return render_to_response("usuario/login.html",datos,context_instance=RequestContext(request))		
 	else:
 		request.session['cont']=0
 		formulario=AuthenticationForm()
-	return render_to_response("usuario/login.html",{"formulario":formulario},RequestContext(request))
+	return render_to_response("usuario/login.html",{'formulario':formulario},context_instance=RequestContext(request))
 def view_logout(request):
 	logout(request)
 	return HttpResponseRedirect("/")
@@ -84,6 +84,23 @@ def view_user_active(request):
 					return HttpResponseRedirect("/user/perfil/")
 			else:
 				formulario=fperfil()
-			return render_to_response("usuario/activar.html",{"formulario":formulario},RequestContext(request))
+			return render_to_response("usuario/activar.html",{"formulario":formulario},context_instance=RequestContext(request))
 	else:
 		return HttpResponseRedirect("/login/")
+
+def modificar_perfil(request):
+	if request.user.is_authenticated():
+		u=request.user
+		usuario=User.objects.get(username=u)
+		perfil=Perfil.objects.get(user=usuario)
+		if request.method=='POST':
+			formulario=fperfil_modificar(request.POST,request.FILES,instance=perfil)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect("/usuario/"+str(usuario.id)+"/")
+		else:
+			formulario=fperfil_modificar(instance=perfil)
+			return render_to_response('modificar_perfil.html',{'formulario':formulario},context_instance=RequestContext(request))
+	else:
+		return HttpResponseRedirect("/login/")
+

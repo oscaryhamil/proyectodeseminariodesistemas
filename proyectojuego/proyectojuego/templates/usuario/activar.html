@@ -4,6 +4,8 @@
 {%endblock%}
 {%block content%}
 	{%include "includes/header.html"%}
+	<div class="container page">
+		<div class="row">
 			<div class="col-xs-12">
 				<form align="center" id="form3" action="" method="post" enctype="multipart/form-data">
 					{{ formulario.as_p }}
@@ -11,6 +13,8 @@
 					<button type="submit" class="btn btn-primary"> Activar Cuenta </button>
 				</form>
 			</div>
+		</div>
+	</div>
 	<img id="image2"src="{{STATIC_URL}}images/img5.jpg">
 	{%include "includes/footer.html"%}
 {%endblock%}

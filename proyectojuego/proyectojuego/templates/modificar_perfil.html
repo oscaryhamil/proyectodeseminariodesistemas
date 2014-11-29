@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-	    <title>Registro usuario</title>
+	    <title>Editar Perfil</title>
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
 			<form action="" method="post" enctype="multipart/form-data">
 			<legend>Formulario de registro</legend>
 		        {% csrf_token %}
-		        {{ formulario.as_p }}
+		        {{ formulario.as_ul}}
 		    
 		            <button type="submit" class="btn btn-primary">Modificar</button>
 		       

@@ -97,7 +97,7 @@ def modificar_perfil(request):
 			formulario=fperfil_modificar(request.POST,request.FILES,instance=perfil)
 			if formulario.is_valid():
 				formulario.save()
-				return HttpResponseRedirect("/usuario/"+str(usuario.id)+"/")
+				return HttpResponseRedirect("/user/perfil/")
 		else:
 			formulario=fperfil_modificar(instance=perfil)
 			return render_to_response('modificar_perfil.html',{'formulario':formulario},context_instance=RequestContext(request))

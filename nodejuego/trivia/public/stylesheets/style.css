@@ -1,8 +1,21 @@
+#principal{
+	background-color: #2552C4;
+}
+#menu{
+	
+	background-color: #1ADF1D;
+}
+
 body {
+  background-image:url("../images/font/wark.jpg " );
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+#crearSala{
+	margin-top: 100px;
+	margin-left: 400px;
 }

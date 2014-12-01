@@ -1,6 +1,6 @@
 .footer{ 
 	height: 100px; 
-	background: #0F8B8A; 
+	background:black;
 	padding-top: 40px;}
 .text-footer{
 	text-align: center;
@@ -11,20 +11,20 @@
 .body{
 	display: inline-block;
 	background: #0EADAA;
-	border-radius: 5px;
+	border-radius: 5px; 
 	
 }
 .nav{
 	margin: solid #ED051C 3px;
-	background: #363838;
+	background: #000000;
 	display: inline-block;
 	border-radius: 5px;
 	text-decoration: none;
 }
 #base{
-	background: #B09489;
+	background-image:url("../images/hhh.jpg");
 }
-#logos,#nombre{
+#nombre{
 	text-decoration: none;
 	float: left;
 	padding: 10px 10px 10px 10px;
@@ -35,7 +35,6 @@
 	width: 100px;
 }
 #deracha{
-
 }
 #isquierda{
 
@@ -83,7 +82,14 @@
 	width: 100%;
 	height: 300px;
 }
-#terre{
-	padding-top: 50px;
 
+#para{
+	margin-top: 100px;
+	background-image:url("../images/ooo.jpg");
+	background-color: black;
+	height: 400px;
+	width: 750px;
+}
+#para1{
+	margin-top: 100px;
 }

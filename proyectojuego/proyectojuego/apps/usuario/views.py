@@ -5,7 +5,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from .forms import *
 from .models import *
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group,Permission
+from django.contrib.sessions.models import Session
 from django.contrib.auth import login, authenticate,logout
 
 # Create your views here.
@@ -19,7 +20,7 @@ def view_registro(request):
 			usuario.is_active=False
 			usuario.save()
 			perfil=Perfil.objects.create(user=usuario)
-			return HttpResponse("Registrado")
+			return  HttpResponseRedirect("/login/")
 	else:
 			formulario_registro=fusuario()
 	return render_to_response("usuario/user_registro.html",{"formulario":formulario_registro},context_instance=RequestContext(request))
@@ -104,3 +105,15 @@ def modificar_perfil(request):
 	else:
 		return HttpResponseRedirect("/login/")
 
+def permisos(request):
+	listadepermisos=[]
+	usuario=request.user
+	if usuario.has_perm("preguntas.add_categorias"):
+		listadepermisos.append({"url":"/preguntas/crearcategorias/","label":"agregar categorias"})
+	if usuario.has_perm("preguntas.add_mpregunta"):
+		listadepermisos.append({"url":"/preguntas/crearpreguntas/","label":"agregar preguntas"})
+	if usuario.has_perm("preguntas.mostrar_preguntas"):
+		listadepermisos.append({"url":"/preguntas/verpreguntas/","label":"ver preguntas"})
+	if usuario.has_perm("preguntas.ver_categoria"):
+		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
+	return listadepermisos

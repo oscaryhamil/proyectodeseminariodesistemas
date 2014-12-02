@@ -7,13 +7,14 @@
 	<div class="container page">
 		<div class="row">
 			<div class="col-xs-12">
-				<li><a href="http://www.facebook.com">Facebook</a></li>
 				<h2>Bienvenido {{ user.get_full_name}}</h2><br>
 				<h2> Pais:{{user.perfil.pais}}</h2>
 				<img src="/media/{{ user.perfil.avatar}}" alt="avatar">
 			</div>
 		</div>
 		<a href="/user/modificar/">Modificar Perfil</a>
+		<li><a href="/principal/crearcategorias/"><h2>Crear Categorias</h2></a></li>
+		<li><a href="/principal/crearpreguntas/"><h2>Crear Preguntas</h2></a></li>
 	</div>
 	<img id="image3"src="{{STATIC_URL}}images/img4.jpg">
 	{%include "includes/footer.html"%}

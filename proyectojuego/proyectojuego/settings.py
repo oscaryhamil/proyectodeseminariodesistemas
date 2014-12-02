@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'proyectojuego.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'juego',
+        'NAME': 'juegotrivia',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'',

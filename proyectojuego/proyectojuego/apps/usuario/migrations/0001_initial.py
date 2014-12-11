@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
             options={
+                'permissions': (('ver_perfil', 'permite ver el perfil'), ('cambiar_perfil', 'permite modificar el perfil')),
             },
             bases=(models.Model,),
         ),

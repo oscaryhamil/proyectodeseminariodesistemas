@@ -9,12 +9,14 @@
 			<div class="col-xs-12">
 				<h2>Bienvenido {{ user.get_full_name}}</h2><br>
 				<h2> Pais:{{user.perfil.pais}}</h2>
-				<img src="/media/{{ user.perfil.avatar}}" alt="avatar">
+				<!-- <img src="/media/{{ user.perfil.avatar}}" alt="avatar"> -->
+				<img src="/media/{{ user.perfil.avatar.url_200x200}}" alt="avatar">
 			</div>
 		</div>
 		<a href="/user/modificar/">Modificar Perfil</a>
-		<li><a href="/principal/crearcategorias/"><h2>Crear Categorias</h2></a></li>
-		<li><a href="/principal/crearpreguntas/"><h2>Crear Preguntas</h2></a></li>
+		<li><a href="/registro/tema/"><h2>Crear Temas</h2></a></li>
+		<!-- <li><a href="/principal/crearpreguntas/"><h2>Crear Preguntas</h2></a></li> -->
+		<li><a href="/conexionnode/"><h2>Chat-Juego</h2></a></li>
 	</div>
 	<img id="image3"src="{{STATIC_URL}}images/img4.jpg">
 	{%include "includes/footer.html"%}

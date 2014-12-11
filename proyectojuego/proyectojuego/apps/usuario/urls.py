@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^user/perfil/$',view_perfil),
     url(r'^user/active/$',view_user_active),
     url(r'^user/modificar/$',modificar_perfil),
+    url(r'^conexionnode/$',conexionnode),
 )

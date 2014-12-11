@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'proyectojuego.apps.principal',
     'proyectojuego.apps.usuario',
     'captcha',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,6 +71,12 @@ DATABASES = {
         'PORT':'',
     }
 }
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -84,6 +91,19 @@ USE_L10N = True
 
 USE_TZ = True
 
+#facebook
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.contrib.auth.context_processors.auth',
+   'django.core.context_processors.debug',
+   'django.core.context_processors.i18n',
+   'django.core.context_processors.media',
+   'django.core.context_processors.static',
+   'django.core.context_processors.tz',
+   'django.contrib.messages.context_processors.messages',
+   'social.apps.django_app.context_processors.backends',
+   'social.apps.django_app.context_processors.login_redirect',
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -97,3 +117,18 @@ MEDIA_ROOT=os.path.join(RUTA_PROYECTO,"media")
 #captcha
 RECAPTCHA_PUBLIC_KEY = '6LfzGv0SAAAAAEly3AzD_6rZRKymu_mVYidU4Y8I'
 RECAPTCHA_PRIVATE_KEY = '6LfzGv0SAAAAALFW9kEEz-GBf9gFACoaVvbCHheD'
+
+
+AUTHENTICATION_BACKENDS = (
+   'social.backends.facebook.FacebookOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL ='/user/perfil/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1504535309836118'
+SOCIAL_AUTH_FACEBOOK_SECRET ='019d2fe14c469044f2291c02f0368276'
+
+LOGIN_URL          = '/login/' #url de la pagina de login del sistema
+LOGIN_REDIRECT_URL = '/user/perfil/' #urla la que se enviara despues del login
+LOGIN_ERROR_URL    = '/login-error/' #url si existe errores
